@@ -1,0 +1,88 @@
+logo{
+    id
+    thumbnail
+    created_at
+    updated_at
+}
+user(strong){
+    id
+    name
+    email
+    password
+    profile
+    created_at
+    updated_at
+}
+product(weakentity){
+    id
+    name
+    thumbnail
+    description
+    user_id(FK)
+    category_id
+    discount_id(FK)
+    sale_price
+    viewer
+    regular_price
+    created_at
+    updated_at
+}
+
+category{
+    id
+    name
+    created_at
+    updated_at
+}
+
+color(weak entity){
+    id
+    name
+    created_at
+    updated_at
+}
+size{
+    id
+    name
+    created_at
+    updated_at
+}
+discount{
+    id
+    name
+    created_at
+    updated_at
+}
+
+news{
+    id
+    description
+    viewer
+    title
+    thumbnail
+    created_at
+    updated_at
+}
+
+user->product: one-to-many
+
+product->color: many-to-many
+
+productColor{
+    product_id(FK)
+    color_id(FK)
+    created_at
+    updated_at
+}
+
+product->size: many-to-many
+
+productSize{
+    product_id(FK)
+    size_id(FK)
+    created_at
+    updated_at
+}
+
+product->discount: one-to-many
+product->category: one-to-many
